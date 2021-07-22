@@ -21,15 +21,24 @@ class MainActivity : AppCompatActivity() {
         val cardlocation = findViewById<CardView>(R.id.cardlocation)
 
         //set click listeners
-        cardabout.setOnClickListener {  }
-        cardcauses.setOnClickListener {  }
-        cardsymptoms.setOnClickListener {  }
-        cardprevention.setOnClickListener {  }
-        cardtollfree.setOnClickListener {  }
-        cardlocation.setOnClickListener {
+        cardabout.setOnClickListener {
+            val i = Intent(this, About::class.java)
+            startActivity(i)
+        }//end
+        cardcauses.setOnClickListener {
+            val i = Intent(this, Causes::class.java)
+            startActivity(i)
+        }//end
+        cardsymptoms.setOnClickListener {
+            val i = Intent(this, Symptoms::class.java)
+            startActivity(i)
+        }//end
+        cardprevention.setOnClickListener {
+            val i = Intent(this, Prevention::class.java)
+            startActivity(i)
         }
+        cardtollfree.setOnClickListener {  }
+        cardlocation.setOnClickListener { }
         //Tomorrow load content
     }
-
-
 }

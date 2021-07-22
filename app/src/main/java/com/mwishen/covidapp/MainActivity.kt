@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
             val i = Intent(this, Prevention::class.java)
             startActivity(i)
         }
-        cardtollfree.setOnClickListener {  }
+        cardtollfree.setOnClickListener { }
         cardlocation.setOnClickListener { }
         //Tomorrow load content
     }

@@ -19,6 +19,15 @@ class MainActivity : AppCompatActivity() {
         val cardprevention = findViewById<CardView>(R.id.cardprevention)
         val cardtollfree = findViewById<CardView>(R.id.cardtollfree)
         val cardlocation = findViewById<CardView>(R.id.cardlocation)
+        cardlocation.setOnClickListener {
+            //right click on app - new - Google - Maps Activity
+            val i = Intent(this, MapsActivity::class.java)
+            startActivity(i)
+
+        }//end
+
+
+
 
         //set click listeners
         cardabout.setOnClickListener {
@@ -38,7 +47,8 @@ class MainActivity : AppCompatActivity() {
             startActivity(i)
         }
         cardtollfree.setOnClickListener { }
-        cardlocation.setOnClickListener { }
+
+
         //Tomorrow load content
     }
 }

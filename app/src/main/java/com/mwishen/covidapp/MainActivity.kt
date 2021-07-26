@@ -27,8 +27,6 @@ class MainActivity : AppCompatActivity() {
         }//end
 
 
-
-
         //set click listeners
         cardabout.setOnClickListener {
             val i = Intent(this, About::class.java)

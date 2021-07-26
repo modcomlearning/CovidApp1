@@ -37,8 +37,33 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap = googleMap
 
         // Add a marker in Sydney and move the camera
-        val sydney = LatLng(-34.0, 151.0)
-        mMap.addMarker(MarkerOptions().position(sydney).title("Sydney, Australia"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 14f))
+        val kangemi = LatLng(-1.2708984,36.7072066)
+        mMap.addMarker(MarkerOptions().position(kangemi).title("Kangemi, Nairobi")
+                                                        .snippet("Cases: 100"))
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(kangemi, 13f))
+
+
+        //another place
+        val kasarani = LatLng(-1.2257908,36.887666)
+        mMap.addMarker(MarkerOptions().position(kasarani).title("Kasarani, Nairobi")
+            .snippet("Cases: 20"))
+
+        //another place
+        val ruaka = LatLng(-1.2071341,36.7562908)
+        mMap.addMarker(MarkerOptions().position(ruaka).title("Ruaka, Nairobi")
+            .snippet("Cases: 80"))
+
+        //another place
+        val westlands = LatLng(-1.2681247,36.8012739)
+        mMap.addMarker(MarkerOptions().position(westlands).title("Westlands, Nairobi")
+            .snippet("Cases: 110"))
+
+
+
+
+
+
+
+
     }
 }

@@ -7,6 +7,7 @@ import android.os.Bundle
 import androidx.cardview.widget.CardView
 import androidx.core.app.ActivityCompat
 
+
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,8 +46,18 @@ class MainActivity : AppCompatActivity() {
             startActivity(i)
         }
         cardtollfree.setOnClickListener { }
-
-
         //Tomorrow load content
     }
-}
+
+
+    override fun onStart() {
+        super.onStart()
+        //request permission
+        if (ActivityCompat.checkSelfPermission(this,
+                android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)
+        {
+            ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),
+                1)
+        }//end if
+    }
+}//last brace

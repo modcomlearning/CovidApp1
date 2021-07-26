@@ -57,12 +57,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val westlands = LatLng(-1.2681247,36.8012739)
         mMap.addMarker(MarkerOptions().position(westlands).title("Westlands, Nairobi")
             .snippet("Cases: 110"))
-
-
-
-
-
-
+        //Next is Global System Positioning
+        //Our code will read cordinates of current location from your phone
+        //Make sure your GPS is ON in your settings
 
 
     }

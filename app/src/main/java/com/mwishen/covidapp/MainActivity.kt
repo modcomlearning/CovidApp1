@@ -60,4 +60,5 @@ class MainActivity : AppCompatActivity() {
                 1)
         }//end if
     }
+    //from here move to MapsActivity
 }//last brace

@@ -1,7 +1,12 @@
 package com.mwishen.covidapp
 
+
+import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import com.google.android.gms.location.LocationServices
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -60,7 +65,37 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         //Next is Global System Positioning
         //Our code will read cordinates of current location from your phone
         //Make sure your GPS is ON in your settings
-
-
+        setupGPS()
     }
-}
+
+//here
+    //gps
+    fun setupGPS(){
+        val fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+        if (ActivityCompat.checkSelfPermission(this,
+                android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)
+        {
+            ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),
+                1)
+
+        }//end if
+        //GET user location if they allowed the permisions
+        mMap.isMyLocationEnabled = true    //user need to activate GPS to ON on their settings
+        fusedLocationClient.lastLocation.addOnSuccessListener(this) {
+                location ->
+            if (location!=null){
+                val currentLocation = LatLng(location.latitude, location.longitude)  //this is your current location
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLocation, 12f))
+                mMap.addMarker(MarkerOptions().position(currentLocation).title("Am here"))
+            }//end if
+
+            else {
+                Toast.makeText(applicationContext, "We can't retrieve your location", Toast.LENGTH_LONG).show()
+            }//end else
+
+        }//end fused successlistener
+
+    }//end gps set up
+
+
+}//last brace
